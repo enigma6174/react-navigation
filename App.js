@@ -1,8 +1,7 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Ionicons } from "@expo/vector-icons";
+
 import WelcomeScreen from "./screens/HomeScreen";
 import UserScreen from "./screens/UserScreen";
 import AboutScreen from "./screens/AboutScreen";
