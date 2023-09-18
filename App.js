@@ -1,55 +1,50 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
+
 import WelcomeScreen from "./screens/HomeScreen";
 import UserScreen from "./screens/UserScreen";
 import AboutScreen from "./screens/AboutScreen";
 
-const Drawer = createDrawerNavigator();
+const BottomTab = createBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator
+      <BottomTab.Navigator
         screenOptions={{
           headerStyle: { backgroundColor: "steelblue" },
           headerTintColor: "white",
           headerTitleAlign: "center",
-          drawerActiveBackgroundColor: "dodgerblue",
-          drawerActiveTintColor: "white",
+          tabBarActiveTintColor: "coral",
         }}
       >
-        <Drawer.Screen
+        <BottomTab.Screen
           name={"home_screen"}
           component={WelcomeScreen}
           options={{
             title: "Home",
-            drawerLabel: "Home Page",
-            drawerIcon: ({ color, size }) => (
+            tabBarIcon: ({ color, size }) => (
               <Ionicons name={"home"} size={size} color={color} />
             ),
           }}
         />
-        <Drawer.Screen
+        <BottomTab.Screen
           name={"user_screen"}
           component={UserScreen}
           options={{
             title: "User",
-            drawerLabel: "User Profile",
-            drawerIcon: ({ color, size }) => (
+            tabBarIcon: ({ color, size }) => (
               <Ionicons name={"person"} size={size} color={color} />
             ),
           }}
         />
-        <Drawer.Screen
+        <BottomTab.Screen
           name={"about_screen"}
           component={AboutScreen}
           options={{
             title: "About",
-            drawerLabel: "About",
-            drawerIcon: ({ color, size }) => (
+            tabBarIcon: ({ color, size }) => (
               <Ionicons
                 name={"information-circle-sharp"}
                 size={size}
@@ -58,7 +53,7 @@ export default function App() {
             ),
           }}
         />
-      </Drawer.Navigator>
+      </BottomTab.Navigator>
     </NavigationContainer>
   );
 }
